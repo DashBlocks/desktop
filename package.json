@@ -1,0 +1,44 @@
+{
+  "name": "dash-desktop",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "Dash as a desktop app",
+  "author": "Dash Team",
+  "scripts": {
+    "start": "electron .",
+    "update": "bash update.sh",
+    "build": "electron-builder",
+    "build:linux": "electron-builder --linux",
+    "build:win": "electron-builder --windows"
+  },
+  "build": {
+    "appId": "com.dashblocks.desktop",
+    "productName": "Dash Desktop",
+    "files": [
+      "main.js",
+      "preload.js",
+      "source/**/*",
+      "package.json",
+      "assets/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "DashBlocks",
+      "repo": "desktop"
+    },
+    "icon": "assets/icons/icon.png", 
+    "linux": {
+      "icon": "assets/icons/icon.png",
+      "target": ["AppImage"],
+      "category": "Development"
+    },
+    "win": {
+      "icon": "assets/icons/icon.ico",
+      "target": ["nsis"]
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}

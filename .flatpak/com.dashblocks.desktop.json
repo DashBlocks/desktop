@@ -1,0 +1,42 @@
+{
+  "app-id": "com.dashblocks.desktop",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "23.08",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "dashblocks",
+  "finish-args": [
+    "--share=network",
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--device=dri"
+  ],
+  "modules": [
+    {
+      "name": "dashblocks",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/bin /app/share/dashblocks",
+        "cp -r ./* /app/share/dashblocks/",
+        "cat > /app/bin/dashblocks <<'EOF'\n#!/bin/bash\ncd /app/share/dashblocks\n/app/share/dashblocks/desktop \"$@\"\nEOF",
+        "chmod +x /app/bin/dashblocks"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "../build-input"
+        }
+      ]
+    },
+    {
+      "name": "dashblocks-metadata",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/share/applications /app/share/icons/hicolor/512x512/apps",
+        "cat > /app/share/applications/com.dashblocks.desktop.desktop <<'EOF'\n[Desktop Entry]\nVersion=1.0\nType=Application\nName=Dash\nComment=Dash as desktop app\nExec=dashblocks %U\nIcon=com.dashblocks.desktop\nCategories=Development;IDE;\nTerminal=false\nStartupNotify=true\nEOF",
+        "cp /app/share/dashblocks/assets/icons/icon.png /app/share/icons/hicolor/512x512/apps/com.dashblocks.desktop.png || true"
+      ],
+      "sources": []
+    }
+  ]
+}
