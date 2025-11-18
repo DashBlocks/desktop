@@ -6,9 +6,6 @@
 
 ## Windows Instructions: 
 - Download the EXE from the latest release
-- Run the .exe
 - Run the installed app
 ---
-Unsure how the windows setup works though, but it should ethier be an installer or a portable exe.
-# Limitations:
-None, if you find any bugs or issues please report them.
+If you find any bugs or issues please report them.
