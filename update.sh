@@ -9,8 +9,8 @@ cd "$(dirname "$0")"
 echo "Removing old source directory..."
 rm -rf source
 
-echo "Cloning latest version of web-build from GitHub..."
-git clone https://github.com/DashBlocks/dashblocks.github.io.git temp-source
+echo "Cloning desktop build from GitHub..."
+git clone --branch desktop-build https://github.com/DashBlocks/scratch-gui.git temp-source
 
 rm -rf temp-source/.git
 

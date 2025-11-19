@@ -114,7 +114,6 @@ mainWindow.webContents.on('did-finish-load', () => {
 });
 }
 */
-// Window control handlers
 ipcMain.on("window-minimize", () => {
   mainWindow.minimize();
 });
@@ -125,9 +124,8 @@ ipcMain.on("window-maximize", () => {
     mainWindow.maximize();
   }
 });
-// Update close handler
 ipcMain.on("window-close", () => {
-  mainWindow.close(); // Use close() instead of destroy() to trigger the handler
+  mainWindow.close();
 });
 app.whenReady().then(createWindow);
 app.on("window-all-closed", () => {
