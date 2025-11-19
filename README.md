@@ -1,7 +1,7 @@
 # Electron-Based Dash Desktop app
 
 ## Linux Instructions:
-- Download the appimage from the latest release
+- Download the AppImage from the latest release
 - Run the AppImage
 
 ## Windows Instructions: 
