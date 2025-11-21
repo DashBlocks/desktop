@@ -1,6 +1,6 @@
 {
   "name": "dash-desktop",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "main.js",
   "description": "Dash as a desktop app",
   "author": "Dash Team",
