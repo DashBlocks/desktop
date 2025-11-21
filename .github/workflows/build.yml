@@ -85,25 +85,12 @@ jobs:
       - name: Build for mac x64
         if: matrix.platform == 'mac' && matrix.arch == 'x64'
         run: |
-          # mac builds run on macOS runners; optionally use signing via secrets
-          if [ -n "$CSC_LINK" ]; then
-            mkdir -p certs
-            echo "$CSC_LINK" | base64 --decode > certs/codesign.p12
-            export CSC_LINK=file://$PWD/certs/codesign.p12
-            export CSC_KEY_PASSWORD="$CSC_KEY_PASSWORD"
-          fi
-          npx electron-builder --mac --x64 --publish always
+          npx electron-builder --mac --x64 --publish never
 
       - name: Build for mac arm64
         if: matrix.platform == 'mac' && matrix.arch == 'arm64'
         run: |
-          if [ -n "$CSC_LINK" ]; then
-            mkdir -p certs
-            echo "$CSC_LINK" | base64 --decode > certs/codesign.p12
-            export CSC_LINK=file://$PWD/certs/codesign.p12
-            export CSC_KEY_PASSWORD="$CSC_KEY_PASSWORD"
-          fi
-          npx electron-builder --mac --arm64 --publish always
+          npx electron-builder --mac --arm64 --publish never
       
       - name: Upload Linux x64 artifacts
         if: matrix.platform == 'linux' && matrix.arch == 'x64'
