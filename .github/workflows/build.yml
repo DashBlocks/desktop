@@ -84,10 +84,6 @@ jobs:
 
       - name: Build for mac x64
         if: matrix.platform == 'mac' && matrix.arch == 'x64'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CSC_LINK: ${{ secrets.CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
         run: |
           # mac builds run on macOS runners; optionally use signing via secrets
           if [ -n "$CSC_LINK" ]; then
@@ -100,10 +96,6 @@ jobs:
 
       - name: Build for mac arm64
         if: matrix.platform == 'mac' && matrix.arch == 'arm64'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CSC_LINK: ${{ secrets.CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
         run: |
           if [ -n "$CSC_LINK" ]; then
             mkdir -p certs
