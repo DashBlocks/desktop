@@ -49,7 +49,7 @@ jobs:
           node-version: '20'
       
       - name: Install dependencies for ARM build (Ubuntu ARM64)
-        if: matrix.arch == 'arm64'
+        if: matrix.platform == 'linux' && matrix.arch == 'arm64'
         run: |
           sudo apt-get update
           sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
