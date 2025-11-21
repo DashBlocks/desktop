@@ -6,6 +6,11 @@ echo "Updating Dash source:"
 
 cd "$(dirname "$0")"
 
+# detect macOS for informational output
+if [ "$(uname)" = "Darwin" ]; then
+	echo "Detected macOS (darwin) — update script is POSIX-compatible."
+fi
+
 echo "Removing old source directory..."
 rm -rf source
 

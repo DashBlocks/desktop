@@ -9,7 +9,8 @@
     "update": "bash update.sh",
     "build": "electron-builder",
     "build:linux": "electron-builder --linux",
-    "build:win": "electron-builder --windows"
+    "build:win": "electron-builder --windows",
+    "build:mac": "electron-builder --mac"
   },
   "build": {
     "appId": "com.dashblocks.desktop",
@@ -35,6 +36,10 @@
     "win": {
       "icon": "assets/icons/icon.ico",
       "target": ["nsis"]
+    },
+    "mac": {
+      "icon": "assets/icons/icon.icns",
+      "target": ["dmg", "zip"]
     }
   },
   "devDependencies": {
