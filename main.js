@@ -15,6 +15,22 @@ function createWindow() {
   });
   Menu.setApplicationMenu(null);
   mainWindow.loadFile("source/editor.html");
+  const restoreFocus = () => {
+    try {
+      if (mainWindow) mainWindow.focus();
+      if (mainWindow && mainWindow.webContents) {
+        mainWindow.webContents.focus();
+        mainWindow.webContents.executeJavaScript(
+          'if (window.focus) window.focus(); if (document && document.body && document.body.focus) document.body.focus();',
+          true
+        );
+      }
+    } catch (_) {}
+  };
+
+  mainWindow.on('show', restoreFocus);
+  mainWindow.on('restore', restoreFocus);
+  mainWindow.on('focus', restoreFocus);
   mainWindow.webContents.on("did-finish-load", () => {
     setTimeout(() => {
       mainWindow.webContents.executeJavaScript(`
