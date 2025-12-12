@@ -27,23 +27,30 @@
       "owner": "DashBlocks",
       "repo": "desktop"
     },
-    "icon": "assets/icons/icon.png", 
+    "icon": "assets/icons/icon.png",
     "linux": {
       "icon": "assets/icons/icon.png",
-      "target": ["AppImage"],
+      "target": [
+        "AppImage"
+      ],
       "category": "Development"
     },
     "win": {
       "icon": "assets/icons/icon.ico",
-      "target": ["nsis"]
+      "target": [
+        "nsis"
+      ]
     },
     "mac": {
       "icon": "assets/icons/icon.icns",
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     }
   },
   "devDependencies": {
-    "electron": "^33.0.0",
+    "electron": "^39.2.6",
     "electron-builder": "^25.0.0"
   }
 }
